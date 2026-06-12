@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>シロイエ 住宅流通 白井不動産相談室</title>
+    <title>シロイエ 住宅流通 白井不動産相談室 | キャリア40年のパートナー</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
@@ -12,153 +12,316 @@
             theme: {
                 extend: {
                     colors: {
-                        green: { 800: '#1a472a', 900: '#0f2c18' },
-                        gold: { 500: '#d4af37', 600: '#b5952f' },
-                        paper: { 100: '#fdfbf7', 200: '#f4f1ea' }
+                        green: {
+                            800: '#1a472a', // 深みのあるグリーン（メイン）
+                            900: '#0f2c18',
+                        },
+                        gold: {
+                            500: '#d4af37', // 落ち着いたゴールド（アクセント）
+                            600: '#b5952f',
+                        },
+                        paper: {
+                            100: '#fdfbf7', // 温かみのあるオフホワイト（背景）
+                            200: '#f4f1ea',
+                        }
                     },
                     fontFamily: {
-                        serif: ['"Noto Serif JP"', 'serif'],
-                        sans: ['"Zen Kaku Gothic New"', 'sans-serif'],
+                        serif: ['"Noto Serif JP"', 'serif'], // 見出し用（新聞のような信頼感）
+                        sans: ['"Zen Kaku Gothic New"', 'sans-serif'], // 本文用（読みやすさ）
                     }
                 }
             }
         }
     </script>
     <style>
-        body { background-color: #e5e7eb; /* 外側は少し暗く */ }
-        .mobile-container {
-            max-w-md; /* スマホ幅に固定 */
-            margin: 0 auto;
+        body {
             background-color: #fdfbf7;
-            min-height: 100vh;
-            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            color: #333;
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* 新聞のコラムのような縦書き風のあしらい（装飾用） */
+        .vertical-text-decoration {
+            writing-mode: vertical-rl;
+            text-orientation: upright;
+            color: rgba(212, 175, 55, 0.1); /* 薄いゴールド */
+            position: absolute;
+            font-size: 4rem;
+            font-family: 'Noto Serif JP', serif;
+            font-weight: 700;
+            z-index: 0;
+            user-select: none;
         }
     </style>
 </head>
-<body class="font-sans text-gray-800 antialiased">
+<body class="font-sans antialiased">
 
-    <div class="max-w-md mx-auto bg-paper-100 min-h-screen shadow-2xl relative pb-20">
+    <!-- Header -->
+    <header class="bg-paper-100/90 backdrop-blur-md fixed w-full z-50 border-b border-paper-200">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <i data-lucide="home" class="text-gold-500 w-6 h-6"></i>
+                <h1 class="font-serif font-bold text-xl md:text-2xl text-green-800 tracking-wide">シロイエ <span class="text-sm md:text-base font-normal text-gray-600 ml-2">住宅流通 白井不動産相談室</span></h1>
+            </div>
+            <nav class="hidden md:flex gap-6 text-sm font-medium text-gray-700">
+                <a href="#credo" class="hover:text-gold-600 transition-colors">私の信条</a>
+                <a href="#history" class="hover:text-gold-600 transition-colors">40年の航跡</a>
+                <a href="#services" class="hover:text-gold-600 transition-colors">専門サービス</a>
+                <a href="#contact" class="px-4 py-2 bg-green-800 text-white rounded hover:bg-green-900 transition-colors">ご相談窓口</a>
+            </nav>
+            <!-- Mobile Menu Button -->
+            <button class="md:hidden text-green-800" id="mobile-menu-btn">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-paper-100 border-t border-paper-200 px-4 py-2 pb-4 space-y-2">
+            <a href="#credo" class="block py-2 text-gray-700">私の信条</a>
+            <a href="#history" class="block py-2 text-gray-700">40年の航跡</a>
+            <a href="#services" class="block py-2 text-gray-700">専門サービス</a>
+            <a href="#contact" class="block mt-4 py-2 text-center bg-green-800 text-white rounded">ご相談窓口</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 md:pt-40 md:pb-32 overflow-hidden bg-green-800 text-white">
+        <!-- Background Pattern / Overlay -->
+        <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(#d4af37 1px, transparent 1px); background-size: 20px 20px;"></div>
         
-        <!-- ヘッダー・ヒーロー部分 -->
-        <div class="bg-green-800 text-white text-center pt-12 pb-16 px-4 rounded-b-[3rem] relative overflow-hidden">
-            <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(#d4af37 1px, transparent 1px); background-size: 16px 16px;"></div>
-            <div class="relative z-10 flex flex-col items-center">
-                <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center mb-4 shadow-lg border-2 border-gold-500">
-                    <i data-lucide="home" class="text-green-800 w-8 h-8"></i>
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            <span class="inline-block py-1 px-3 border border-gold-500 text-gold-500 text-sm font-medium tracking-widest mb-6 rounded-sm">キャリア40年のパートナー</span>
+            <h2 class="font-serif text-3xl md:text-5xl lg:text-6xl font-bold leading-tight mb-8">
+                白井の街が終の棲家となり、<br class="hidden md:block">不動産を知り・学んだ40年。
+            </h2>
+            <p class="text-lg md:text-xl text-gray-200 font-sans max-w-2xl mx-auto leading-relaxed">
+                白井駅周辺の集合住宅・土地・戸建ての仲介、管理。<br>
+                複雑な事情も、40年の全経験を尽くして<br class="hidden md:block">あなたの安心のために働きます。
+            </p>
+        </div>
+    </section>
+
+    <!-- Credo (私の信条) Section -->
+    <section id="credo" class="py-20 relative bg-paper-100">
+        <div class="vertical-text-decoration right-10 top-10 hidden lg:block">一期一会</div>
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="fade-in text-center mb-12">
+                <i data-lucide="leaf" class="w-8 h-8 text-gold-500 mx-auto mb-4"></i>
+                <h3 class="font-serif text-2xl md:text-3xl font-bold text-green-800 mb-2">「数字」のためではなく、「人」のために。</h3>
+                <p class="text-gray-500 text-sm tracking-widest">CREDO</p>
+            </div>
+            
+            <div class="fade-in bg-white p-8 md:p-12 shadow-sm border border-paper-200 rounded-sm relative">
+                <!-- Quote icon -->
+                <div class="absolute -top-4 -left-4 bg-gold-500 text-white p-3 rounded-full shadow-md">
+                    <i data-lucide="quote" class="w-5 h-5"></i>
                 </div>
-                <h1 class="font-serif font-bold text-2xl tracking-widest mb-1">シロイエ</h1>
-                <p class="text-xs text-gold-500 font-medium tracking-wide">住宅流通 白井不動産相談室</p>
+                
+                <div class="space-y-6 text-gray-700 leading-loose font-serif text-lg">
+                    <p>私は根っからの営業マンとして生きてきました。しかし、不動産の仕事は単に物件を動かすことではありません。「人」対「人」の「想いの共有」の仕事であると確信しています。</p>
+                    
+                    <p>競売物件から始まり、大手での再生事業、そしてここ白井での地域密着の歩み。40年間、不動産のあらゆる側面を見てきたからこそ、最後に行き着いたのは「目の前の方の期待に、誠実に全力で応えること」でした。</p>
+                    
+                    <div class="my-8 p-6 bg-paper-200 border-l-4 border-green-800 rounded-r text-xl text-green-900 font-bold leading-relaxed">
+                        「残された時間は、自分の利益ではなく、お客様への貢献に使いたい。それが私の人生の質（QOL）を高めることだから。」
+                    </div>
+                    
+                    <p>白井を中心とした半径5km圏内。エリアを絞ることで、一人ひとりのお客様と深く長くお付き合いができる。これまでの人生の集大成として、皆様の住まいと暮らしをお守りします。</p>
+                </div>
             </div>
         </div>
+    </section>
 
-        <!-- キャッチコピー（浮き出しカード） -->
-        <div class="px-5 -mt-10 relative z-20">
-            <div class="bg-white p-6 rounded-2xl shadow-lg border border-paper-200 text-center">
-                <span class="inline-block px-2 py-1 bg-gold-50 text-gold-600 text-[10px] font-bold tracking-widest rounded mb-3">キャリア40年のパートナー</span>
-                <h2 class="font-serif text-lg font-bold text-green-900 leading-relaxed mb-3">
-                    白井の街が終の棲家となり、<br>不動産を知り・学んだ40年。
-                </h2>
-                <p class="text-xs text-gray-600 leading-relaxed">
-                    白井駅周辺の集合住宅・土地・戸建ての仲介、管理。複雑な事情も、40年の全経験を尽くしてあなたの安心のために働きます。
+    <!-- History (40年の航跡) Section -->
+    <section id="history" class="py-20 bg-paper-200">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="fade-in text-center mb-16">
+                <h3 class="font-serif text-2xl md:text-3xl font-bold text-green-800 mb-2">40年の航跡</h3>
+                <p class="text-gray-600">不動産の「裏側」から「街づくり」まで。全方位の経験が解決力です。</p>
+            </div>
+
+            <div class="relative">
+                <!-- Vertical Line -->
+                <div class="absolute left-4 md:left-1/2 transform md:-translate-x-1/2 h-full w-px bg-gold-500/30"></div>
+
+                <!-- Step 1 -->
+                <div class="fade-in relative flex flex-col md:flex-row items-center justify-between mb-16 group">
+                    <div class="w-full md:w-5/12 pl-12 md:pl-0 md:text-right mb-4 md:mb-0 pr-0 md:pr-8">
+                        <h4 class="font-serif text-xl font-bold text-green-800 mb-2">【黎明期】真贋を見抜く目の養成</h4>
+                        <p class="text-gray-700 text-sm leading-relaxed">中古不動産の仲介からキャリアをスタート。その後、競売不動産の落札から売却までの一連の流れを深く経験しました。表面的な情報だけでなく、権利関係や建物の状態など、物件の「本当の価値とリスク」を見抜く目利き力はこの時期に培われました。</p>
+                    </div>
+                    <!-- Icon -->
+                    <div class="absolute left-0 md:left-1/2 transform md:-translate-x-1/2 w-8 h-8 rounded-full bg-gold-500 border-4 border-paper-200 flex items-center justify-center z-10 transition-transform group-hover:scale-110">
+                        <div class="w-2 h-2 bg-white rounded-full"></div>
+                    </div>
+                    <div class="w-full md:w-5/12 pl-12 md:pl-8">
+                        <div class="bg-white p-4 rounded shadow-sm border border-paper-200 inline-block text-gold-600 font-medium text-sm">
+                            <i data-lucide="search" class="inline w-4 h-4 mr-1"></i> 競売不動産の目利き
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="fade-in relative flex flex-col md:flex-row-reverse items-center justify-between mb-16 group">
+                    <div class="w-full md:w-5/12 pl-12 md:pl-0 md:text-left mb-4 md:mb-0 pl-0 md:pl-8">
+                        <h4 class="font-serif text-xl font-bold text-green-800 mb-2">【拡大期】空間を蘇らせる知識</h4>
+                        <p class="text-gray-700 text-sm leading-relaxed">大手企業の不動産部へ。中古物件の再生事業や新規物件の供給事業に最前線で従事。リノベーションを通じ、建築家や施工業者と深い関係を築きました。「古いものをどう活かすか」「どうすれば価値が上がるか」という建築的アプローチの知識を得ました。</p>
+                    </div>
+                    <!-- Icon -->
+                    <div class="absolute left-0 md:left-1/2 transform md:-translate-x-1/2 w-8 h-8 rounded-full bg-green-800 border-4 border-paper-200 flex items-center justify-center z-10 transition-transform group-hover:scale-110">
+                        <div class="w-2 h-2 bg-white rounded-full"></div>
+                    </div>
+                    <div class="w-full md:w-5/12 pl-12 md:pr-8 md:text-right">
+                        <div class="bg-white p-4 rounded shadow-sm border border-paper-200 inline-block text-green-800 font-medium text-sm">
+                            <i data-lucide="hammer" class="inline w-4 h-4 mr-1"></i> リノベーション・再生の知見
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="fade-in relative flex flex-col md:flex-row items-center justify-between group">
+                    <div class="w-full md:w-5/12 pl-12 md:pl-0 md:text-right mb-4 md:mb-0 pr-0 md:pr-8">
+                        <h4 class="font-serif text-xl font-bold text-green-800 mb-2">【定着期】地域への深い愛着と還元</h4>
+                        <p class="text-gray-700 text-sm leading-relaxed">千葉県白井市堀込（北総線白井駅）にて独立。地元の開発業者と協働し、分譲地の開発から販売まで経験。同時に地域の集合住宅・戸建ての仲介、賃貸管理を行い現在に至ります。この街の酸いも甘いも知る相談役として、皆様に寄り添います。</p>
+                    </div>
+                    <!-- Icon -->
+                    <div class="absolute left-0 md:left-1/2 transform md:-translate-x-1/2 w-8 h-8 rounded-full bg-gold-500 border-4 border-paper-200 flex items-center justify-center z-10 transition-transform group-hover:scale-110">
+                        <div class="w-2 h-2 bg-white rounded-full"></div>
+                    </div>
+                    <div class="w-full md:w-5/12 pl-12 md:pl-8">
+                        <div class="bg-white p-4 rounded shadow-sm border border-paper-200 inline-block text-gold-600 font-medium text-sm">
+                            <i data-lucide="map-pin" class="inline w-4 h-4 mr-1"></i> 分譲地開発・地域密着
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="fade-in mt-16 text-center">
+                <p class="inline-block border-b-2 border-gold-500 pb-1 text-green-900 font-serif font-bold text-lg">
+                    「この人なら、どんな複雑な事情も解決してくれる」<br class="md:hidden">そう思っていただける経験があります。
                 </p>
             </div>
         </div>
+    </section>
 
-        <!-- アクションボタン（最重要・目立たせる） -->
-        <div class="px-5 mt-8 space-y-3">
-            <a href="https://lin.ee/stfBafg" target="_blank" rel="noopener noreferrer" style="background-color: #06C755;" class="flex items-center justify-center gap-2 w-full text-white font-bold py-3.5 px-6 rounded-xl hover:opacity-90 shadow-md transition-opacity">
-                <i data-lucide="message-circle" class="w-5 h-5"></i> LINEで相談する
-            </a>
-            <a href="tel:047-406-4810" class="flex items-center justify-center gap-2 w-full bg-green-800 text-white font-bold py-3.5 px-6 rounded-xl shadow-md">
-                <i data-lucide="phone" class="w-5 h-5"></i> 047-406-4810
-            </a>
-            <a href="mailto:ryu2kamada@gmail.com" class="flex items-center justify-center gap-2 w-full bg-white border border-gray-300 text-gray-700 font-bold py-3.5 px-6 rounded-xl shadow-sm">
-                <i data-lucide="mail" class="w-5 h-5 text-gray-500"></i> メールを送る
-            </a>
-            <p class="text-center text-[10px] text-gray-500 mt-2">営業時間：8:00 - 16:30 (水曜定休)</p>
-        </div>
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-paper-100">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="fade-in text-center mb-16">
+                <h3 class="font-serif text-2xl md:text-3xl font-bold text-green-800 mb-2">専門サービス</h3>
+                <p class="text-gray-600">千葉ニュータウン駅周辺を含む、白井・西白井エリア（半径5km圏内）。</p>
+            </div>
 
-        <!-- 信条（凝縮版） -->
-        <div class="px-6 mt-12">
-            <h3 class="font-serif text-sm font-bold text-green-800 border-b-2 border-gold-500 inline-block pb-1 mb-4 flex items-center gap-2">
-                <i data-lucide="leaf" class="w-4 h-4 text-gold-500"></i> 私の信条
-            </h3>
-            <p class="text-sm text-gray-700 leading-relaxed font-serif">
-                不動産の仕事は「人」対「人」の「想いの共有」であると確信しています。<br><br>
-                <span class="text-green-900 font-bold bg-gold-50 p-1">残された時間は、自分の利益ではなく、お客様への貢献に使いたい。</span><br><br>
-                それが私の人生の質（QOL）を高めることだからです。
-            </p>
-        </div>
-
-        <!-- 40年の歩み（縦ライン） -->
-        <div class="px-6 mt-12">
-            <h3 class="font-serif text-sm font-bold text-green-800 border-b-2 border-gold-500 inline-block pb-1 mb-6 flex items-center gap-2">
-                <i data-lucide="footprints" class="w-4 h-4 text-gold-500"></i> 40年の航跡
-            </h3>
-            
-            <div class="ml-2 border-l-2 border-gold-300 space-y-6">
-                <div class="relative pl-6">
-                    <div class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-gold-500 border-2 border-white"></div>
-                    <h4 class="font-serif text-sm font-bold text-green-900">【黎明期】真贋を見抜く目</h4>
-                    <p class="text-xs text-gray-600 mt-1">中古仲介・競売不動産を通じ、物件の本当の価値とリスクを見抜く目利き力を養成。</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="fade-in bg-white border border-paper-200 p-8 rounded-sm shadow-sm hover:shadow-md transition-shadow relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-16 h-16 bg-green-50 rounded-bl-full -mr-8 -mt-8 transition-transform group-hover:scale-150"></div>
+                    <i data-lucide="home" class="w-10 h-10 text-green-800 mb-6 relative z-10"></i>
+                    <h4 class="font-serif text-xl font-bold text-gray-900 mb-4 relative z-10">不動産仲介（売買）</h4>
+                    <p class="text-gray-600 text-sm leading-relaxed mb-4 relative z-10">
+                        集合住宅、土地、戸建ての売却・購入をサポートいたします。大手にはできない、小回りの利くきめ細やかな査定と販売戦略。白井エリアの相場や環境を知り尽くしているからこそ、適正な価値を見出します。
+                    </p>
                 </div>
-                <div class="relative pl-6">
-                    <div class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-green-800 border-2 border-white"></div>
-                    <h4 class="font-serif text-sm font-bold text-green-900">【拡大期】空間を蘇らせる知識</h4>
-                    <p class="text-xs text-gray-600 mt-1">大手不動産部で再生事業や新規供給に従事。建築的アプローチの知識を獲得。</p>
+
+                <!-- Service 2 -->
+                <div class="fade-in bg-white border border-paper-200 p-8 rounded-sm shadow-sm hover:shadow-md transition-shadow relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-16 h-16 bg-gold-50 rounded-bl-full -mr-8 -mt-8 transition-transform group-hover:scale-150"></div>
+                    <i data-lucide="key" class="w-10 h-10 text-gold-500 mb-6 relative z-10"></i>
+                    <h4 class="font-serif text-xl font-bold text-gray-900 mb-4 relative z-10">賃貸管理</h4>
+                    <p class="text-gray-600 text-sm leading-relaxed mb-4 relative z-10">
+                        大家様の手を煩わせない、誠実で迅速な賃貸管理を行います。入居者様とのコミュニケーションを大切にし、建物的維持管理はもちろん、空室対策やリノベーションの提案まで、資産価値を守り高めるお手伝いをします。
+                    </p>
                 </div>
-                <div class="relative pl-6">
-                    <div class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-gold-500 border-2 border-white"></div>
-                    <h4 class="font-serif text-sm font-bold text-green-900">【定着期】地域への還元</h4>
-                    <p class="text-xs text-gray-600 mt-1">白井市にて独立。分譲地開発や仲介・管理を行い、街の相談役として現在に至る。</p>
+
+                <!-- Service 3 -->
+                <div class="fade-in bg-white border border-paper-200 p-8 rounded-sm shadow-sm hover:shadow-md transition-shadow relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-16 h-16 bg-gray-50 rounded-bl-full -mr-8 -mt-8 transition-transform group-hover:scale-150"></div>
+                    <i data-lucide="briefcase" class="w-10 h-10 text-gray-700 mb-6 relative z-10"></i>
+                    <h4 class="font-serif text-xl font-bold text-gray-900 mb-4 relative z-10">コンサルティング</h4>
+                    <p class="text-gray-600 text-sm leading-relaxed mb-4 relative z-10">
+                        競売、再生事業、分譲地開発の経験を活かし、権利関係が複雑な物件や、他社で断られた難しい案件のご相談を承ります。士業（弁護士・税理士等）との連携も視野に入れ、最適な出口戦略を共に描きます。
+                    </p>
                 </div>
             </div>
         </div>
+    </section>
 
-        <!-- サービス（リスト化） -->
-        <div class="px-6 mt-12 mb-8">
-            <h3 class="font-serif text-sm font-bold text-green-800 border-b-2 border-gold-500 inline-block pb-1 mb-4 flex items-center gap-2">
-                <i data-lucide="check-square" class="w-4 h-4 text-gold-500"></i> 専門サービス
-            </h3>
-            <p class="text-[10px] text-gray-500 mb-3">白井・西白井エリア（半径5km圏内）</p>
+    <!-- Contact / Footer Section -->
+    <section id="contact" class="bg-green-900 text-white py-20 border-t-4 border-gold-500">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h3 class="font-serif text-2xl md:text-3xl font-bold mb-6">まずは、世間話から始めませんか。</h3>
+            <p class="text-gray-300 mb-10 max-w-2xl mx-auto leading-relaxed">
+                不動産の悩みは、誰に相談していいか分からないものです。<br>
+                「売るかどうかわからない」「身内のちょっとした相談」など、敷居を低くしてお待ちしております。私の知識が、地域の皆様のお役に立てれば幸いです。
+            </p>
+
+            <div class="bg-white/10 p-8 rounded border border-white/20 inline-block w-full max-w-md">
+                <p class="text-gold-500 font-bold mb-2">お電話でのご相談</p>
+                <div class="text-3xl md:text-4xl font-sans font-bold mb-4 tracking-wider text-white">
+                    047-406-4810
+                </div>
+                <p class="text-sm text-gray-300 mb-6">営業時間：8:00 - 16:30</p>
+                
+                <div class="flex flex-col gap-3">
+                    <a href="https://lin.ee/stfBafg" target="_blank" rel="noopener noreferrer" style="background-color: #06C755;" class="inline-flex items-center justify-center gap-2 w-full text-white font-bold py-3 px-6 rounded hover:opacity-90 transition-opacity">
+                        <i data-lucide="message-circle" class="w-5 h-5"></i> LINEでのお問い合わせ
+                    </a>
+                    <a href="mailto:ryu2kamada@gmail.com" class="inline-flex items-center justify-center gap-2 w-full bg-gold-500 text-white font-bold py-3 px-6 rounded hover:bg-gold-600 transition-colors">
+                        <i data-lucide="mail" class="w-5 h-5"></i> メールでのお問い合わせ
+                    </a>
+                </div>
+            </div>
             
-            <ul class="space-y-3">
-                <li class="bg-white p-4 rounded-lg shadow-sm border border-paper-200 flex items-start gap-3">
-                    <i data-lucide="home" class="w-5 h-5 text-green-800 mt-0.5 shrink-0"></i>
-                    <div>
-                        <h4 class="text-sm font-bold text-gray-800">不動産仲介（売買）</h4>
-                        <p class="text-xs text-gray-600 mt-1">小回りの利く査定と販売戦略。適正な価値を見出します。</p>
-                    </div>
-                </li>
-                <li class="bg-white p-4 rounded-lg shadow-sm border border-paper-200 flex items-start gap-3">
-                    <i data-lucide="key" class="w-5 h-5 text-gold-500 mt-0.5 shrink-0"></i>
-                    <div>
-                        <h4 class="text-sm font-bold text-gray-800">賃貸管理</h4>
-                        <p class="text-xs text-gray-600 mt-1">大家様の手を煩わせない、誠実で迅速な管理・空室対策。</p>
-                    </div>
-                </li>
-                <li class="bg-white p-4 rounded-lg shadow-sm border border-paper-200 flex items-start gap-3">
-                    <i data-lucide="briefcase" class="w-5 h-5 text-gray-600 mt-0.5 shrink-0"></i>
-                    <div>
-                        <h4 class="text-sm font-bold text-gray-800">コンサルティング</h4>
-                        <p class="text-xs text-gray-600 mt-1">複雑な権利関係や難しい案件のご相談。出口戦略を描きます。</p>
-                    </div>
-                </li>
-            </ul>
+            <div class="mt-16 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-start md:items-center text-sm text-gray-400 text-left">
+                <div class="mb-4 md:mb-0">
+                    <div class="mb-2"><span class="font-serif font-bold text-white text-lg tracking-wide mr-2">シロイエ</span> <span class="text-white text-base">住宅流通 白井不動産相談室</span></div>
+                    <p class="mt-1">住宅流通合同会社</p>
+                    <p>〒270-1408 千葉県白井市西白井4-29-9 FN BASE F</p>
+                    <p>宅地建物取引業者免許：千葉県知事（２）第17629号</p>
+                </div>
+                <div class="mt-4 md:mt-0 text-left md:text-right">
+                    &copy; 2026 住宅流通合同会社. All Rights Reserved.
+                </div>
+            </div>
         </div>
-
-        <!-- フッター -->
-        <div class="bg-paper-200 mt-8 pt-8 pb-12 px-6 text-center text-xs text-gray-500">
-            <p class="font-bold text-gray-700 mb-1">住宅流通合同会社</p>
-            <p>〒270-1408 千葉県白井市西白井4-29-9 FN BASE F</p>
-            <p class="mb-4">千葉県知事（２）第17629号</p>
-            <p>&copy; 2026 住宅流通合同会社.</p>
-        </div>
-
-    </div>
+    </section>
 
     <script>
+        // Initialize Lucide icons
         lucide.createIcons();
+
+        // Mobile menu toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // Scroll animation
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(element => {
+            observer.observe(element);
+        });
     </script>
 </body>
 </html>
